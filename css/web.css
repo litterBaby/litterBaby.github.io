@@ -1,3 +1,4 @@
+*{margin: 0;padding: 0;}
 body {
     font-family:helvetica, arial, sans-serif;
     background:#efefef;
@@ -23,16 +24,16 @@ header section#title {
 header h1 {
     padding:9px 12px 0;
     font-family:'Lato', helvetica, sans-serif;
-    font-weight:900;
+    font-weight:500;
     font-size:2.2em;
     line-height:1;
     letter-spacing:-.025em;
     color:#4eb8ea;
 }
 header h2 {
-    padding:0px 12px;
+    padding:5px 12px;
     font-family:"Source Sans Pro", helvetica, sans-serif;
-    font-weight:400; /*设定下载字体的粗细*/
+    font-weight:300; /*设定下载字体的粗细*/
     font-size:.9em; line-height:1;
     letter-spacing:-.025em;
     color:#333;
