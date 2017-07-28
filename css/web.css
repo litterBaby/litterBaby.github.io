@@ -300,3 +300,150 @@ section#feature_area nav {
     color:#616161;
 }
 #feature_area nav li a:hover { color:#000; }
+section#book_area { /*与布局同宽*/
+    clear:both;
+    border-radius:20px 0px 20px 0px;
+    border:1px solid #f58c21;
+    margin:8px 0 16px; /*上下间距*/
+    overflow:hidden;
+}
+#book_area article { /*四本书四栏*/
+    float:left;
+    width:25% ;
+    padding:10px 0;
+    background:none;
+}
+#book_area article .inner { /*封面外包装*/
+    position:relative; /*为弹出层提供定位上下文*/
+    width:200px; /*包装每一本书*/
+    margin:0 auto; /*在各自 article 元素内居中每一本书*/
+}
+#book_area .inner h3 { /*旋转文字*/
+    position:absolute;
+    width:200px;
+    left:105%; bottom:5px; /*把文字定位在图书右侧*/
+    transform:rotate(-90deg); /*旋转文字需要使用带厂商前缀的属性*/
+    transform-origin:left bottom; /*设定旋转中心点，需要带厂商前缀的属性*/
+    color:#ccc;
+    font-size:1.4em;
+    font-family:Lato, helvetica, sans-serif;
+    font-style:normal;
+    font-weight:900;
+    text-align:left;
+}
+/*较窄的封面需要不同的偏移量*/
+#book_area article.right:last-child h3 { left:85%; }
+#book_area article img { box-shadow: 0 12px 8px -9px #555;width: 180px; }/*封面阴影*/
+#book_area article aside { /*弹出层共享样式开始*/
+    display:none; /*隐藏弹出层*/
+    position:absolute; /*相对于包含图片的内部 div*/
+    z-index:2;
+    width:200px; /*弹出层宽度*/
+    background:#fff;
+    padding:10px 2px 5px; /*弹出层内容边距*/
+    border:2px solid #f58c21;
+    border-radius:10px 0px 10px 0px;
+    box-shadow:4px 4px 16px #555;
+    color:#555;
+    font-family:"Source Sans Pro", helvetica, sans-serif;
+    font-size:.8em;
+    line-height:1.5em;
+}
+#book_area article:hover aside { display:block; }/*鼠标悬停于封面时显示弹出层*/
+#book_area article aside li {
+    padding:.25em 0 .75em 1em; /*列表项的垂直间距和左边距*/
+    list-style-type:none; /*去掉默认的项目符号*/
+    line-height:1.2em;
+}
+#book_area article aside li a { /*链接文本*/
+    text-decoration:none;
+    font-size:1.2em;
+    color:#616161;
+}
+#book_area article aside li a:hover { /*悬停时突显链接*/
+    color:#333;
+} /*弹出层共享样式结束*/
+#book_area article.left aside {/*左侧两本书*/
+    left:84%; top:14px; /* 把弹出层定位在图片右侧*/
+}
+#book_area article.right aside {/*右侧两本书*/
+    right:84%; top:14px;/*把弹出层定位在图片左侧*/
+}
+#book_area article aside:after { /*橙色三角形*/
+    content:""; /*需要有内容，这里是一个空字符串*/
+    position:absolute; /*相对于弹出层定位*/
+    top:33px;
+    border:12px solid;
+    height:0px; width:0px; /*收缩边框创造三角形*/
+}
+#book_area article.left aside:after { /*左侧图书弹出层的三角形定位及颜色*/
+    right:100%;
+    border-color:transparent #f58c21 transparent transparent;
+}
+#book_area article.right aside:after { /*右侧图书弹出层的三角形定位及颜色*/
+    left:100%;
+    border-color:transparent transparent transparent #f58c21;
+}
+#book_area article aside:before { /*白色三角形*/
+    content:""; /*需要有内容，这里是一个空字符串*/
+    position:absolute; /*相对于弹出层定位*/
+    border:8px solid;
+    height:0px; width:0px; /*收缩边框创造三角形*/
+    z-index:100; /*保证白色三角形在最前面*/
+    top:37px;
+}
+#book_area article.left aside:before { /*左侧图书白色三角形的样式、位置和颜色*/
+    right:100%;
+    border-color:transparent white transparent transparent;
+}
+#book_area article.right aside:before { /*右侧图书白色三角形的样式、位置和颜色*/
+    left:100%;
+    border-color:transparent transparent transparent white;
+}
+footer {
+    padding:.5em 0 .35em 0; /*内容上下的间距*/
+    text-align:center; /*居中内容*/
+    border-radius:10px 0px 10px 0px;
+    background:#fff;
+    box-shadow:0 12px 8px -9px #555;
+}
+footer p { /*文本行的样式*/
+    font-family:'Source Sans Pro';
+    font-weight:400;
+    font-size:.85em;
+    letter-spacing:-.05em;
+    color:#555;
+}
+footer p a { /*文本行中的链接*/
+    font-family:'Source Sans Pro';
+    font-style:italic;
+    font-weight:700;
+    font-size:1em;
+    color:#4eb8ea;
+    text-decoration:none;
+}
+footer p a:hover {
+    color:#777;
+}
+footer ul { /*链接列表*/
+    display:inline-block; /*收缩包围列表*/
+    margin:4px 0 0;
+}
+footer li {
+    list-style-type:none; /*去掉默认的项目符号*/
+    float:left; /*让列表项水平排列*/
+    font-family:"Source Sans Pro";
+    font-weight:400;
+    font-size:.85em;
+}
+footer li + li a {
+    border-left:1px solid #ccc; /*链接分隔线*/
+}
+footer li a {
+    text-decoration:none; /*去掉链接默认的下划线*/
+    color:#aaa;
+    padding:0 5px; /*链接间距*/
+}
+footer a:hover {
+    color:#777;
+}
