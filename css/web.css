@@ -293,6 +293,7 @@ section#feature_area nav {
     background-color:#d6e636; /*项目符号颜色*/
     box-shadow:1px 1px 2px #888;
 }
+section#feature_area article img{width: 200px;height: 200px}
 #feature_area nav li a {
     display:block; /*链接与列表项同宽*/
     text-decoration:none; /*去掉默认的下划线*/
@@ -332,7 +333,7 @@ section#book_area { /*与布局同宽*/
     text-align:left;
 }
 /*较窄的封面需要不同的偏移量*/
-#book_area article.right:last-child h3 { left:85%; }
+#book_area article.right:last-child h3 { left:105%; }
 #book_area article img { box-shadow: 0 12px 8px -9px #555;width: 180px; }/*封面阴影*/
 #book_area article aside { /*弹出层共享样式开始*/
     display:none; /*隐藏弹出层*/
