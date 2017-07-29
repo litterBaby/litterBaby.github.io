@@ -11,7 +11,7 @@ header {
     height:70px; /*固定高度，包围绝对定位元素*/
     margin:10px 0;
     background:#fff;
-    border-radius:20px 0px 20px 0px; /*顺序：左上、右上、右下、左下*/
+    border-radius:20px 0 20px 0; /*顺序：左上、右上、右下、左下*/
     box-shadow:0 12px 8px -9px #555; /*负扩展值把阴影定位到盒子内部*/
     padding:1px; /*防止子元素外边距叠加*/
 }
@@ -19,7 +19,7 @@ header section#title {
     position:absolute;
     width:300px; /*宽到足以不让文本折行*/
     height:65px; /*高到足以容纳两行文本*/
-    left:0px; /*左上角定位*/
+    left:0; /*左上角定位*/
     top:0;
 }
 header h1 {
@@ -46,7 +46,7 @@ form.search {
 .search input {
     float:right; width:70px;
     padding:2px 0 3px 5px;
-    border-radius:10px 0px 10px 0px;
+    border-radius:10px 0 10px 0;
     font-family:"Source Sans Pro", helvetica, sans-serif;
     font-weight: 400;
     font-size:1em;
@@ -158,7 +158,7 @@ section#feature_area article h3 { /*博文标题*/
     font-weight:700;
     font-size:1.75em;
     color:#555;
-    margin:0px 0 12px 0px;
+    margin:0 0 12px 0;
     letter-spacing:-.05em;
 }
 section#feature_area article#blog_leadoff p { /*博文内容*/
@@ -168,7 +168,7 @@ section#feature_area article#blog_leadoff p { /*博文内容*/
     font-size:1.1em;
     line-height:1.5em;
     color:#616161;
-    margin:0 0px;
+    margin:0 0;
     text-align:justify;
 }
 section#feature_area article#blog_leadoff p::first-letter { /*首字母下沉*/
@@ -262,7 +262,7 @@ section#feature_area nav {
     width:19em; /*容器整体宽度*/
     float:right;/*与区域右边对齐*/
     margin:15px 0 0; /*上方间距*/
-    padding:.6em 0em .75em; /*链接上下的间距*/
+    padding:.6em 0 .75em; /*链接上下的间距*/
     background:#fff;
     border-radius:10px 0 10px 0;
     box-shadow: 0 12px 8px -9px #555;
@@ -276,7 +276,7 @@ section#feature_area nav {
     color:#aaa;
     letter-spacing:-.05em;
 }
-#feature_area nav ul { margin:0em 0 0 20px; }
+#feature_area nav ul { margin:0 0 0 20px; }
 #feature_area nav li {
     padding:.7em 0 0 2em;
     position:relative; /*项目符号的定位上下文*/
@@ -303,7 +303,7 @@ section#feature_area article img{width: 200px;height: 200px}
 #feature_area nav li a:hover { color:#000; }
 section#book_area { /*与布局同宽*/
     clear:both;
-    border-radius:20px 0px 20px 0px;
+    border-radius:20px 0 20px 0;
     border:1px solid #f58c21;
     margin:8px 0 16px; /*上下间距*/
     overflow:hidden;
@@ -343,7 +343,7 @@ section#book_area { /*与布局同宽*/
     background:#fff;
     padding:10px 2px 5px; /*弹出层内容边距*/
     border:2px solid #f58c21;
-    border-radius:10px 0px 10px 0px;
+    border-radius:10px 0 10px 0;
     box-shadow:4px 4px 16px #555;
     color:#555;
     font-family:"Source Sans Pro", helvetica, sans-serif;
@@ -375,7 +375,7 @@ section#book_area { /*与布局同宽*/
     position:absolute; /*相对于弹出层定位*/
     top:33px;
     border:12px solid;
-    height:0px; width:0px; /*收缩边框创造三角形*/
+    height:0; width:0; /*收缩边框创造三角形*/
 }
 #book_area article.left aside:after { /*左侧图书弹出层的三角形定位及颜色*/
     right:100%;
@@ -389,7 +389,7 @@ section#book_area { /*与布局同宽*/
     content:""; /*需要有内容，这里是一个空字符串*/
     position:absolute; /*相对于弹出层定位*/
     border:8px solid;
-    height:0px; width:0px; /*收缩边框创造三角形*/
+    height:0; width:0; /*收缩边框创造三角形*/
     z-index:100; /*保证白色三角形在最前面*/
     top:37px;
 }
@@ -404,7 +404,7 @@ section#book_area { /*与布局同宽*/
 footer {
     padding:.5em 0 .35em 0; /*内容上下的间距*/
     text-align:center; /*居中内容*/
-    border-radius:10px 0px 10px 0px;
+    border-radius:10px 0 10px 0;
     background:#fff;
     box-shadow:0 12px 8px -9px #555;
 }
@@ -447,4 +447,88 @@ footer li a {
 }
 footer a:hover {
     color:#777;
+}
+/*响应式开始 断点1000px */
+@media only screen and (max-width:1000px) { /*1000 像素的断点*/
+    body {
+        margin:0 8px 20px; /*添加右外边距，以防滚动条碍事儿*/
+    }
+    #wrapper {width:98%;} /*布局由固定变成流动*/
+    header {
+        height:100px; /*增加页眉高度，为重新定位菜单留出空间*/
+        padding:1px 0 0 0; /*防止导航菜单的上外边距叠加*/
+    }
+    header nav.menu {
+        margin-top:65px; /*把菜单移动到页面标题和搜索框下方 */
+    }
+    section#feature_area {padding-bottom:0;} /*用不着了*/
+    section#feature_area article { /*让博文摘要部分与布局同宽*/
+        float:none; /*不需要浮动了*/
+        width:auto;/*自动填满布局*/
+    }
+    section#feature_area aside { /*原来的右栏同样与布局同宽*/
+        float:none;
+        width:auto;
+    }
+    section#feature_area aside form {
+        float:left; /*浮动到左侧*/
+        margin:15px 0 0 0; /*与 nav 的上外边距一致*/
+    }
+    section#feature_area aside nav {
+        width:17em; /*缩小博文链接区的宽度*/
+    }
+} /*1000 像素断点结束*/
+/*响应式结束 断点1000px */
+@media only screen and ( max-width:640px) {
+    header {height:100px;}
+    header nav.menu {width:94%; font-size:.65em; } /*水平间距更多了*/
+    section#book_area article { /*博文摘要*/
+        width:auto;
+        float:none;
+        margin:0; padding:0; /*每本书的容器都与布局同宽*/
+    }
+    section#feature_area aside form,
+    section#feature_area aside nav { /*博文链接*/
+        margin:10px auto; /*添加上、下外边距*/
+        float:none;
+    }
+    /*图片容器与布局同宽*/
+    section#book_area article .inner {width:98%; margin:0 0 0 5px; }
+    #book_area .inner h3 { /*取消文本旋转效果*/
+        -webkit-transform:none;
+        -moz-transform:none;
+        transform:none;
+        position:static;
+    }
+    #book_area article img { /*相对设备宽度确定图片宽度 */
+        width:40%;
+    }
+    img {max-width:100%;}
+    section#book_area {background:#fff; padding: 0 10px 10px; margin:0 0 10px;}
+    #book_area article aside { /*在图片旁边显示弹出层*/
+        display:block;
+        position:static;
+        float:right;
+        margin:0; padding:0 0 20px 0;
+        font-size:.8em;
+        border:none;
+        width:55%;
+        box-shadow:none;
+    }
+    section#book_area article aside::before, /*隐藏弹出层的三角*/
+    section#book_area article aside::after {
+        display:none;
+    }
+}
+@media only screen and (max-width:320px) { /*iPhone 竖屏*/
+    header {height:90px;} /*缩小页眉高度*/
+    header section#title h1 {font-size:1.25em;} /*文本再小一点*/
+    header section#title h2 {font-size:.75em;} /*文本再小一点*/
+    header form.search {top:6px; right:2px;} /*搜索框上移*/
+    /*按比例缩小，并上移菜单*/
+    header nav.menu {font-size:.55em; margin-top:55px;}
+    nav.menu ul li a {
+        padding:5px 4px; /*增大链接，方便点击*/
+        margin:0;
+    }
 }
