@@ -482,6 +482,7 @@ footer a:hover {
 @media only screen and ( max-width:640px) {
     header {height:100px;}
     header nav.menu {width:94%; font-size:.65em; } /*水平间距更多了*/
+    #wrapper {width:98%;}
     section#book_area article { /*博文摘要*/
         width:auto;
         float:none;
@@ -527,6 +528,7 @@ footer a:hover {
     header form.search {top:6px; right:2px;} /*搜索框上移*/
     /*按比例缩小，并上移菜单*/
     header nav.menu {font-size:.55em; margin-top:55px;}
+    #wrapper {width:98%;}
     nav.menu ul li a {
         padding:5px 4px; /*增大链接，方便点击*/
         margin:0;
